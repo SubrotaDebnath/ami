@@ -4,7 +4,6 @@ import 'package:ami/constants/strings.dart';
 import 'package:ami/modules/social_media.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class About extends StatelessWidget {
   const About({Key? key}) : super(key: key);
@@ -13,10 +12,11 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: Components().topsBorderRadius(),
-      ),
-      margin: EdgeInsets.only(top: 20.0),
+      // decoration: BoxDecoration(
+      //   color: Colors.pink,
+      //   borderRadius: Components().topsBorderRadius(),
+      // ),
+      //margin: EdgeInsets.only(top: 20.0),
       //height: size.height,
       height: 920,
       child: Stack(
@@ -30,11 +30,11 @@ class About extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent,
-                    borderRadius: Components().topsBorderRadius(),
+                   // borderRadius: Components().topsBorderRadius(),
                     image: DecorationImage(
                       fit: BoxFit.fitWidth,
                       image: AssetImage(
-                        'images/cover2.jpg',
+                        Strings().kLargeScreenCover,
                       ),
                     ),
                   ),
@@ -56,66 +56,17 @@ class About extends StatelessWidget {
                       children: [
                         Align(
                           alignment: Alignment.topCenter,
-                          child: Text(
-                            '© Copyright Subrota Debnath',
-                            style: TextStyle(
-                              color: Colors.deepOrange,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 20.0,
-                            ),
-                          ),
+                          child: Components().copyrightText(),
                         ),
                         SizedBox(
                           //height: (MediaQuery.of(context).size.height / 3) / 2,
                           height: 150,
                         ),
-                        Text(
-                          'About Me',
-                          style: GoogleFonts.dancingScript(
-                            fontWeight: FontWeight.w700,
-                            fontStyle: FontStyle.normal,
-                            fontSize: 50.0,
-                            color: Colours().kAppBarLevelColor,
-                          ),
-                        ),
-                        // Text(
-                        //   'About Me',
-                        //   style: TextStyle(
-                        //     fontSize: 30.0,
-                        //     fontWeight: FontWeight.bold,
-                        //     color: Colours().kAppBarLevelColor,
-                        //     letterSpacing:1.0,
-                        //     fontStyle: GoogleFonts.openSansCondensed(),
-                        //   ),
-                        // ),
+                        Components().blockTitleText(Strings().kAboutTitleText),
                         SizedBox(
                           height: 8.0,
                         ),
-
-                        //handlee
-                        //Open Sans Condensed
-                        //Indie Flower
-                        Text(
-                          Strings().kAboutMe,
-                          style: GoogleFonts.mandali(
-                            fontWeight: FontWeight.normal,
-                            fontStyle: FontStyle.normal,
-                            fontSize: 18.0,
-                            color: Colors.blueGrey.shade700,
-                          ),
-                          textAlign: TextAlign.justify,
-                          textDirection: TextDirection.ltr,
-                        ),
-                        // Text(
-                        //   Strings().kAboutMe,
-                        //   style: TextStyle(
-                        //     color: Colors.blueGrey.shade700,
-                        //     fontWeight: FontWeight.normal,
-                        //     fontSize: 18.0,
-                        //   ),
-                        //   textDirection: TextDirection.ltr,
-                        //   textAlign: TextAlign.justify,
-                        // ),
+                        Components().blockDodyText(Strings().kAboutMeBodyText),
                       ],
                     ),
                   ),
@@ -160,62 +111,18 @@ class About extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'Subrota Debnath',
-                              style: TextStyle(
-                                fontSize: 40.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                            Text(
-                              'Android App Developer',
-                              style: TextStyle(
-                                fontSize: 24.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
+                            Components().nameText(),
+                            Components().positionText(),
                             SizedBox(
                               height: 20,
                             ),
-                            Text(
-                              'Degree: B.Sc. in ECE',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                            Text(
-                              'City: Dhaka, Bangladesh.',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
+                            Components().degreeText(),
+                            Components().cityText(),
                             SizedBox(
                               height: 20,
                             ),
-                            Text(
-                              'Email: subrota.shuvro@gmail.com',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                                fontStyle: FontStyle.italic,
-                              ),
-                            ),
-                            Text(
-                              'Contact: +8801854397708',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                                fontStyle: FontStyle.italic,
-                              ),
-                            ),
+                            Components().emailText(),
+                            Components().contactText(),
                           ],
                         ),
                         Align(
@@ -228,8 +135,6 @@ class About extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerRight,
                     child: Container(
-                      //width: (MediaQuery.of(context).size.height / 3) * .7,
-                      //height: MediaQuery.of(context).size.height / 3,
                       width: 250,
                       height: 350,
                       decoration: BoxDecoration(
@@ -240,7 +145,7 @@ class About extends StatelessWidget {
                         image: DecorationImage(
                           fit: BoxFit.fitHeight,
                           image: AssetImage(
-                            'images/sss.png',
+                            Strings().kLargeScreenDP,
                           ),
                         ),
                       ),
@@ -254,4 +159,5 @@ class About extends StatelessWidget {
       ),
     );
   }
+
 }

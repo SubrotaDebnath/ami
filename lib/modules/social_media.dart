@@ -11,6 +11,7 @@ class SocialMediaRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Components().socialMediaIconButton(FontAwesomeIcons.linkedin,
             'Linked In', Strings().kLinkedInUrl),

@@ -16,7 +16,7 @@ class _TabViewState extends State<TabView> {
   void getIndex(index){
     setState(() {
       profileIndex = index;
-      print('Index: $index');
+      //print('Index: $index');
     });
   }
 

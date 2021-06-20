@@ -1,9 +1,6 @@
 import 'package:ami/constants/component.dart';
-import 'package:ami/constants/list.dart';
-import 'package:ami/modules/menu_option.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ami/constants/colours.dart';
 import 'package:flutter/rendering.dart';
 
 class WebView extends StatefulWidget {
@@ -34,12 +31,14 @@ class _WebViewState extends State<WebView> {
       body: Row(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 16.0),
+            //padding: EdgeInsets.only(top: 16.0),
             color: Colors.white,
             child: Card(
               //elevation: 8.0,
+              //shadowColor: Colors.pink,
               //shadowColor: Colours().kShadowColor,
               child: Container(
+                padding: EdgeInsets.only(top: 16.0, bottom: 32.0),
                 width: 250,
                 color: Colors.transparent,
                 child: Components().buildListView(controller,getIndex, profileIndex),

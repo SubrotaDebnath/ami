@@ -1,3 +1,4 @@
+import 'package:ami/constants/strings.dart';
 import 'package:ami/screens/large_screen_view.dart';
 import 'package:ami/screens/mobile_screen_view.dart';
 import 'package:ami/screens/tablet_screen_view.dart';
@@ -7,7 +8,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Subrota Debnath',
+      title: Strings().kName,
       home: ViewSelector(),
     ),
   );

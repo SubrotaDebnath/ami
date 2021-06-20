@@ -2,20 +2,19 @@ import 'package:ami/constants/list.dart';
 import 'package:ami/constants/strings.dart';
 import 'package:ami/modules/blankColumn.dart';
 import 'package:ami/modules/menu_option.dart';
-import 'package:ami/screens/about.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import 'colours.dart';
 
 class Components {
-  BorderRadius topsBorderRadius() {
-    return BorderRadius.only(
-      topLeft: Radius.circular(24.0),
-      topRight: Radius.circular(24.0),
-    );
-  }
+  // BorderRadius topsBorderRadius() {
+  //   return BorderRadius.only(
+  //     topLeft: Radius.circular(24.0),
+  //     topRight: Radius.circular(24.0),
+  //   );
+  // }
 
   void _launchURL(_url) async => await canLaunch(_url)
       ? await launch(_url)
@@ -56,7 +55,7 @@ class Components {
 
   AppBar kSmallAppBar() {
     return AppBar(
-      title: Text('Subrota Debnath'),
+      title: Text(Strings().kName),
       backgroundColor: Colors.blueGrey.shade900,
       actions: [
         Padding(
@@ -70,7 +69,7 @@ class Components {
   AppBar kLargeScreenAppBar() {
     return AppBar(
       title: Text(
-        'Subrota Debnath | Android App Developer | subrota.shuvro@gmail.com',
+        '${Strings().kName} | ${Strings().kPositionTitle} | ${Strings().kEmail}',
         style: TextStyle(
           fontWeight: FontWeight.w500,
           color: Colours().kAppBarLevelColor,
@@ -92,6 +91,7 @@ class Components {
 
 
   ListView buildListView(controller, getIndex, profileIndex) {
+    //print('Menu Item length: ${AllListItem().kMenuItem.length}');
     return ListView.builder(
       controller: controller,
       itemCount: AllListItem().kMenuItem.length,
@@ -141,6 +141,127 @@ class Components {
           ],
         );
       },
+    );
+  }
+
+  Text copyrightText() {
+    return Text(
+      '© Copyright Subrota Debnath',
+      style: TextStyle(
+        color: Colors.deepOrange,
+        fontWeight: FontWeight.normal,
+        fontSize: 20.0,
+      ),
+    );
+  }
+
+  Text blockTitleText(String title) {
+    return Text(
+      title,
+      style: GoogleFonts.dancingScript(
+        fontWeight: FontWeight.w700,
+        fontStyle: FontStyle.normal,
+        fontSize: 50.0,
+        color: Colours().kAppBarLevelColor,
+      ),
+    );
+  }
+
+  Text blockDodyText(String bodyText) {
+    //handlee
+    //Open Sans Condensed
+    //Indie Flower
+    //mandali
+    return Text(
+      bodyText,
+      style: GoogleFonts.handlee(
+        fontWeight: FontWeight.normal,
+        fontStyle: FontStyle.normal,
+        fontSize: 20.0,
+        color: Colors.blueGrey.shade700,
+      ),
+      textAlign: TextAlign.justify,
+      textDirection: TextDirection.ltr,
+    );
+  }
+
+  Text titleText(String title, ) {
+    return Text(
+      title,
+      style: TextStyle(
+        fontSize: 18.0,
+        color: Colors.white,
+        fontWeight: FontWeight.normal,
+        fontStyle: FontStyle.italic,
+      ),
+    );
+  }
+
+  Text contactText() {
+    return Text(
+      '${Strings().kContact}',
+      style: TextStyle(
+        fontSize: 18.0,
+        color: Colors.white,
+        fontWeight: FontWeight.normal,
+        fontStyle: FontStyle.italic,
+      ),
+    );
+  }
+
+  Text emailText() {
+    return Text(
+      '${Strings().kEmail}',
+      style: TextStyle(
+        fontSize: 18.0,
+        color: Colors.white,
+        fontWeight: FontWeight.normal,
+        fontStyle: FontStyle.italic,
+      ),
+    );
+  }
+
+  Text cityText() {
+    return Text(
+      '${Strings().kCity}',
+      style: TextStyle(
+        fontSize: 18.0,
+        color: Colors.white,
+        fontWeight: FontWeight.normal,
+      ),
+    );
+  }
+
+  Text degreeText() {
+    return Text(
+      '${Strings().kDegree}',
+      style: TextStyle(
+        fontSize: 18.0,
+        color: Colors.white,
+        fontWeight: FontWeight.normal,
+      ),
+    );
+  }
+
+  Text positionText() {
+    return Text(
+      '${Strings().kPositionTitle}',
+      style: TextStyle(
+        fontSize: 24.0,
+        color: Colors.white,
+        fontWeight: FontWeight.normal,
+      ),
+    );
+  }
+
+  Text nameText() {
+    return Text(
+      '${Strings().kName}',
+      style: TextStyle(
+        fontSize: 40.0,
+        color: Colors.white,
+        fontWeight: FontWeight.normal,
+      ),
     );
   }
 

@@ -1,6 +1,8 @@
 import 'package:ami/constants/component.dart';
 import 'package:flutter/material.dart';
 
+import 'mobile_body.dart';
+
 class MobileView extends StatefulWidget {
   const MobileView({Key? key}) : super(key: key);
 
@@ -16,7 +18,7 @@ class _MobileViewState extends State<MobileView> {
   void getIndex(index){
     setState(() {
       profileIndex = index;
-      print('Index: $index');
+      //print('Index: $index');
     });
   }
 
@@ -27,6 +29,7 @@ class _MobileViewState extends State<MobileView> {
       drawer: Drawer(
         child: Components().buildListView(controller, getIndex, profileIndex),
       ),
+      body: MobileBody(),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:ami/screens/about.dart';
+import 'package:ami/screens/large_scrren_services.dart';
 import 'package:ami/screens/mobile_about.dart';
+import 'package:ami/screens/mobile_services.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -29,9 +31,10 @@ class AllListItem{
   ];
 
   final List kPages = [
-    //About(),
-    //About(),
+    Services(),
     About(),
+    About(),
+    //Services(),
     About(),
     About(),
     About(),
@@ -39,9 +42,10 @@ class AllListItem{
   ];
 
   final List kMobilePages = [
-    //MobileAbout(),
-    //MobileAbout(),
+    MobileServices(),
     MobileAbout(),
+    MobileAbout(),
+    // MobileServices(),
     MobileAbout(),
     MobileAbout(),
     MobileAbout(),

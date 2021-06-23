@@ -163,7 +163,19 @@ class Components {
         fontStyle: FontStyle.normal,
         fontSize: 50.0,
         color: Colours().kAppBarLevelColor,
+        textStyle: TextStyle(
+          shadows: [
+            Shadow(
+              offset: Offset(10.0, 10.0),
+              blurRadius: 3.0,
+              color: Colours().kAppBarLevelColor.withOpacity(.5),
+              //color: Colors.blueGrey,
+              //color: Color.fromARGB(255, 0, 0, 0),
+            ),
+          ],
+        ),
       ),
+
     );
   }
 

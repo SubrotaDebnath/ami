@@ -31,10 +31,10 @@ class AllListItem{
   ];
 
   final List kPages = [
-    Services(),
-    About(),
-    About(),
     //Services(),
+    About(),
+    About(),
+    Services(),
     About(),
     About(),
     About(),
@@ -42,10 +42,10 @@ class AllListItem{
   ];
 
   final List kMobilePages = [
+    //MobileServices(),
+    MobileAbout(),
+    MobileAbout(),
     MobileServices(),
-    MobileAbout(),
-    MobileAbout(),
-    // MobileServices(),
     MobileAbout(),
     MobileAbout(),
     MobileAbout(),

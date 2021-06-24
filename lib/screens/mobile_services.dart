@@ -14,8 +14,6 @@ class MobileServices extends StatelessWidget {
       //color: Colors.pink,
       padding: EdgeInsets.all(16.0),
 
-      //TODO: have to change List view with Column
-
       child: Column(
         children: [
           Components().blockTitleText(Strings().kServicesTitleText),
@@ -23,7 +21,6 @@ class MobileServices extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-
           ServiceCard(
               Icons.phone_android_rounded,
               Strings().kServiceCardTitle_1,
@@ -38,7 +35,6 @@ class MobileServices extends StatelessWidget {
               Colors.white,
               Colors.redAccent,
               Colors.black),
-
           ServiceCard(
               Icons.dashboard_customize_rounded,
               Strings().kServiceCardTitle_3,
@@ -46,8 +42,6 @@ class MobileServices extends StatelessWidget {
               Colors.white,
               Colors.indigo,
               Colors.black),
-
-
           ServiceCard(
               Icons.looks_rounded,
               Strings().kServiceCardTitle_4,
@@ -62,8 +56,6 @@ class MobileServices extends StatelessWidget {
               Colors.white,
               Colors.pink,
               Colors.black),
-
-
           ServiceCard(
               Icons.code_rounded,
               Strings().kServiceCardTitle_6,
@@ -78,8 +70,6 @@ class MobileServices extends StatelessWidget {
               Colors.white,
               Colors.green,
               Colors.black),
-
-
           ServiceCard(
               Icons.branding_watermark_rounded,
               Strings().kServiceCardTitle_8,
@@ -87,7 +77,6 @@ class MobileServices extends StatelessWidget {
               Colors.white,
               Colors.orangeAccent,
               Colors.black),
-
         ],
       ),
     );

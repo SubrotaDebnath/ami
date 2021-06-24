@@ -13,8 +13,6 @@ class Services extends StatelessWidget {
       //color: Colors.pink,
       padding: EdgeInsets.all(16.0),
 
-      //TODO: have to change List view with Column
-
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

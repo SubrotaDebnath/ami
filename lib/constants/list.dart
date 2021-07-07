@@ -2,26 +2,23 @@ import 'package:ami/screens/about.dart';
 import 'package:ami/screens/large_scrren_services.dart';
 import 'package:ami/screens/mobile_about.dart';
 import 'package:ami/screens/mobile_services.dart';
+
 import 'package:flutter/material.dart';
 
 class AllListItem {
   final List kMenuItem = [
     'About',
-    'Portfolio',
+    //'Portfolio',
     'Services',
-    'Resume',
-    'Blog',
-    'Contact',
-    'Download CV'
+    //'Resume',
+    //'Blog',
+    //'Contact',
+    //'Download CV'
   ];
 
   final List kMenuIcon = [
-    //Icons.account_box_rounded,
     Icons.person,
-    //Icons.find_in_page,
     Icons.engineering,
-    //Icons.build,
-    // Icons.construction,
     Icons.precision_manufacturing,
     Icons.compare,
     Icons.article_outlined,
@@ -32,22 +29,22 @@ class AllListItem {
   final List kPages = [
     //Services(),
     About(),
-    About(),
+    //Portfolio(),
     Services(),
-    About(),
-    About(),
-    About(),
-    About(),
+    //Resume(),
+    //Blog(),
+    //Contact(),
+    //About(),
   ];
 
   final List kMobilePages = [
     //MobileServices(),
     MobileAbout(),
-    MobileAbout(),
+    //Portfolio(),
     MobileServices(),
-    MobileAbout(),
-    MobileAbout(),
-    MobileAbout(),
-    MobileAbout(),
+    //Resume(),
+    //Blog(),
+    //Contact(),
+    //MobileAbout(),
   ];
 }

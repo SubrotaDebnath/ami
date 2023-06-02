@@ -6,9 +6,7 @@ import 'package:ami/screens/large_screen_view.dart';
 import 'package:ami/screens/mobile_screen_view.dart';
 import 'package:ami/screens/tablet_screen_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'constants/navigation/route_generator.dart';
 import 'constants/navigation/routes.dart';
 

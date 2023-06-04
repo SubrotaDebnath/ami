@@ -13,14 +13,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            context.read<ThemeBloc>().add(ThemeEventChangeTheme(context: context));
-          },
-          child: Text('Theme'),
-        ),
+      appBar: AppBar(
+        actions: [
+          OutlinedButton(
+            onPressed: () {
+              context.read<ThemeBloc>().add(ThemeEventChangeTheme(context: context));
+            },
+            child: Text('Theme'),
+          ),
+        ],
       ),
+      body: Card(child: Container(height: 300,width: 300,),)
     );
   }
 }

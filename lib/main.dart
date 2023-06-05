@@ -1,5 +1,6 @@
 import 'package:ami/business_logic/portfolio_observer.dart';
 import 'package:ami/business_logic/theme_bloc/theme_bloc.dart';
+import 'package:ami/constants/navigation/routers.dart';
 import 'package:ami/constants/strings.dart';
 import 'package:ami/constants/theme/app_theme.dart';
 import 'package:ami/screens/large_screen_view.dart';
@@ -7,8 +8,7 @@ import 'package:ami/screens/mobile_screen_view.dart';
 import 'package:ami/screens/tablet_screen_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'constants/navigation/route_generator.dart';
-import 'constants/navigation/routes.dart';
+
 
 void main() {
   Bloc.observer = PortfolioObserver();
@@ -34,11 +34,14 @@ class MyApp extends StatelessWidget {
   listener: (context, themeState) {
   },
   builder: (context, themeState) {
-    return MaterialApp(
+    return MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: Strings().kName,
-        initialRoute: Routes.kHomeScreen,
-        onGenerateRoute: RouteGenerator.generateRoute,
+        routerConfig: Routers().router,
+        // routeInformationParser: Routers().router.routeInformationParser ,
+        // routerDelegate: Routers().router.routerDelegate,
+        // initialRoute: Routes.kHomeScreen,
+        // onGenerateRoute: RouteGenerator.generateRoute,
         theme:AppTheme(themeState: themeState).themeData(),
       );
   },

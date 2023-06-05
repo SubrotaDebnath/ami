@@ -1,4 +1,5 @@
 class Routes {
-  static const String kLoginScreen = '/';
-  static const String kHomeScreen = '/homeScreen';
+  static const String kHomeScreen = '/';
+  static const String kAboutScreen = '/about';
+  static const String kContactScreen = '/contact';
 }

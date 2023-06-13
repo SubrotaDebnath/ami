@@ -1,21 +1,22 @@
-import 'package:ami/constants/component.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/component.dart';
+
 class TabView extends StatefulWidget {
-  const TabView({Key? key}) : super(key: key);
+  const TabView({super.key});
 
   @override
-  _TabViewState createState() => _TabViewState();
+  TabViewState createState() => TabViewState();
 }
 
-class _TabViewState extends State<TabView> {
-  int profileIndex = 0;
+class TabViewState extends State<TabView> {
+  int _profileIndex = 0;
 
-  final ScrollController controller = ScrollController();
+  final ScrollController _controller = ScrollController();
 
-  void getIndex(index){
+  void _getIndex(int index){
     setState(() {
-      profileIndex = index;
+      _profileIndex = index;
       //print('Index: $index');
     });
   }
@@ -26,7 +27,7 @@ class _TabViewState extends State<TabView> {
     return Scaffold(
       appBar: Components().kSmallAppBar(),
       drawer: Drawer(
-        child: Components().buildListView(controller, getIndex, profileIndex),
+        child: Components().buildListView(_controller, _getIndex, _profileIndex),
       ),
       body: Container(
         child: Components().kLargeScreenBodyItem(width),

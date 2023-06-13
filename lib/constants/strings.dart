@@ -48,11 +48,11 @@ class Strings {
 
   final String kAboutTitleText = 'About Me';
   final String kAboutMeBodyText = "I'm  an enthusiastic person who loves to "
-      "explore different paths and make new "
+      'explore different paths and make new '
       "experiences besides I'm a hard-working, honest individual, always "
-      "willing to learn new skills. Quite friendly, helpful, and polite, have a "
-      "good sense of humor. To fulfill my object, I am outgoing and tactful "
-      "and able to listen effectively when solving problems.";
+      'willing to learn new skills. Quite friendly, helpful, and polite, have a '
+      'good sense of humor. To fulfill my object, I am outgoing and tactful '
+      'and able to listen effectively when solving problems.';
 
   final String kImageLocation = 'https://media-exp3.licdn.com/dms'
       '/image/C4D03AQEJJ7VQhKSgxw/profile-displayphoto-shrink_400_400/0/'

@@ -1,48 +1,47 @@
-import 'package:ami/constants/component.dart';
-import 'package:ami/constants/strings.dart';
-import 'package:ami/modules/service_Card.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/component.dart';
+import '../constants/strings.dart';
+import '../modules/service_Card.dart';
+
 class Services extends StatelessWidget {
-  const Services({Key? key}) : super(key: key);
+  const Services({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 1415,
       //color: Colors.pink,
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16),
 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Components().blockTitleText(Strings().kServicesTitleText),
           Components().blockDodyText(Strings().kServicesBodyText),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 1,
                 child: ServiceCard(
-                    Icons.phone_android_outlined,
-                    Strings().kServiceCardTitle_1,
-                    Strings().kServiceCardBody_1,
-                    Colors.white,
-                    Colors.green,
-                    Colors.black),
+                    icon: Icons.phone_android_outlined,
+                    title: Strings().kServiceCardTitle_1,
+                    description:Strings().kServiceCardBody_1,
+                    color:Colors.white,
+                    iconColor:Colors.green,
+                    textColor:Colors.black,),
               ),
               Expanded(
-                flex: 1,
                 child: ServiceCard(
-                    Icons.auto_fix_high_rounded,
-                    Strings().kServiceCardTitle_2,
-                    Strings().kServiceCardBody_2,
-                    Colors.white,
-                    Colors.redAccent,
-                    Colors.black),
+                    icon:Icons.auto_fix_high_rounded,
+                    title:Strings().kServiceCardTitle_2,
+                    description:Strings().kServiceCardBody_2,
+                    color:Colors.white,
+                    iconColor:Colors.redAccent,
+                    textColor:Colors.black,),
               ),
             ],
           ),
@@ -50,24 +49,22 @@ class Services extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 1,
                 child: ServiceCard(
-                    Icons.dashboard_customize_rounded,
-                    Strings().kServiceCardTitle_3,
-                    Strings().kServiceCardBody_3,
-                    Colors.white,
-                    Colors.indigo,
-                    Colors.black),
+                    icon:Icons.dashboard_customize_rounded,
+                    title:Strings().kServiceCardTitle_3,
+                    description:Strings().kServiceCardBody_3,
+                    color: Colors.white,
+                    iconColor:Colors.indigo,
+                    textColor: Colors.black,),
               ),
               Expanded(
-                flex: 1,
                 child: ServiceCard(
-                    Icons.looks_rounded,
-                    Strings().kServiceCardTitle_4,
-                    Strings().kServiceCardBody_4,
-                    Colors.white,
-                    Colors.amberAccent,
-                    Colors.black),
+                    icon:Icons.looks_rounded,
+                    title:Strings().kServiceCardTitle_4,
+                    description: Strings().kServiceCardBody_4,
+                    color: Colors.white,
+                    iconColor:Colors.amberAccent,
+                    textColor: Colors.black,),
               ),
             ],
           ),
@@ -75,24 +72,22 @@ class Services extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 1,
                 child: ServiceCard(
-                    Icons.design_services_rounded,
-                    Strings().kServiceCardTitle_5,
-                    Strings().kServiceCardBody_5,
-                    Colors.white,
-                    Colors.pink,
-                    Colors.black),
+                    icon:Icons.design_services_rounded,
+                    title:Strings().kServiceCardTitle_5,
+                    description:Strings().kServiceCardBody_5,
+                    color: Colors.white,
+                    iconColor:Colors.pink,
+                    textColor: Colors.black,),
               ),
               Expanded(
-                flex: 1,
                 child: ServiceCard(
-                    Icons.code_rounded,
-                    Strings().kServiceCardTitle_6,
-                    Strings().kServiceCardBody_6,
-                    Colors.white,
-                    Colors.blueGrey.shade700,
-                    Colors.black),
+                    icon:Icons.code_rounded,
+                    title:Strings().kServiceCardTitle_6,
+                    description:Strings().kServiceCardBody_6,
+                    color: Colors.white,
+                    iconColor:Colors.blueGrey.shade700,
+                    textColor: Colors.black,),
               ),
             ],
           ),
@@ -100,24 +95,22 @@ class Services extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 1,
                 child: ServiceCard(
-                    Icons.support_rounded,
-                    Strings().kServiceCardTitle_7,
-                    Strings().kServiceCardBody_7,
-                    Colors.white,
-                    Colors.green,
-                    Colors.black),
+                    icon:Icons.support_rounded,
+                    title:Strings().kServiceCardTitle_7,
+                    description:Strings().kServiceCardBody_7,
+                    iconColor:Colors.white,
+                    color: Colors.green,
+                    textColor: Colors.black,),
               ),
               Expanded(
-                flex: 1,
                 child: ServiceCard(
-                    Icons.branding_watermark_rounded,
-                    Strings().kServiceCardTitle_8,
-                    Strings().kServiceCardBody_8,
-                    Colors.white,
-                    Colors.orangeAccent,
-                    Colors.black),
+                    icon:Icons.branding_watermark_rounded,
+                    title:Strings().kServiceCardTitle_8,
+                    description:Strings().kServiceCardBody_8,
+                    color: Colors.white,
+                    iconColor:Colors.orangeAccent,
+                    textColor: Colors.black,),
               ),
             ],
           ),

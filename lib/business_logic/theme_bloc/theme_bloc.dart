@@ -1,12 +1,12 @@
-import 'package:ami/constants/enums.dart';
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../constants/enums.dart';
 import '../../data/cashed/preferences.dart';
 import '../../data/cashed/preferences_key.dart';
 
 part 'theme_event.dart';
-
 part 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
@@ -16,14 +16,14 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   }
 }
 
-_onThemeEventSetUp(ThemeEventSetUp event, Emitter<ThemeState> emit) async {
+ _onThemeEventSetUp(ThemeEventSetUp event, Emitter<ThemeState> emit) async {
   emit(ThemeInitial());
   int themeStatus = await Preferences().getIntValue(
     keyName: PreferencesKey.kThemeStatus,
   );
   Brightness brightness = MediaQueryData.fromView(View.of(
     event.context,
-  )).platformBrightness;
+  ),).platformBrightness;
 
   if (themeStatus == ThemeStatus.dark.index) {
     emit(DarkTheme());
@@ -35,22 +35,27 @@ _onThemeEventSetUp(ThemeEventSetUp event, Emitter<ThemeState> emit) async {
       value: ThemeStatus.system.index,
     );
     if (brightness == Brightness.dark) {
-      emit(Default(themeStatus: ThemeStatus.system, themeData: ThemeData.dark()));
+      emit(Default(
+          themeStatus: ThemeStatus.system, themeData: ThemeData.dark(),),);
     } else {
-      emit(Default(themeStatus: ThemeStatus.system, themeData: ThemeData.light()));
+      emit(Default(
+          themeStatus: ThemeStatus.system, themeData: ThemeData.light(),),);
     }
   }
 }
 
 _onThemeEventChangeTheme(
-    ThemeEventChangeTheme event, Emitter<ThemeState> emit) async {
+  ThemeEventChangeTheme event,
+  Emitter<ThemeState> emit,
+) async {
   emit(ThemeInitial());
   int themeStatus = await Preferences().getIntValue(
     keyName: PreferencesKey.kThemeStatus,
   );
+
   Brightness brightness = MediaQueryData.fromView(View.of(
     event.context,
-  )).platformBrightness;
+  ),).platformBrightness;
 
   //Dark
   if (themeStatus == ThemeStatus.dark.index) {
@@ -74,11 +79,13 @@ _onThemeEventChangeTheme(
     );
     //Dark
     if (brightness == Brightness.dark) {
-      emit(Default(themeStatus:  ThemeStatus.system, themeData: ThemeData.light()));
+      emit(Default(
+          themeStatus: ThemeStatus.system, themeData: ThemeData.light(),),);
     }
     //Light
     else {
-      emit(Default(themeStatus:  ThemeStatus.system, themeData: ThemeData.dark()));
+      emit(Default(
+          themeStatus: ThemeStatus.system, themeData: ThemeData.dark(),),);
     }
   }
 }

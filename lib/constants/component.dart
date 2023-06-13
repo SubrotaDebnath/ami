@@ -1,103 +1,87 @@
-import 'package:ami/constants/list.dart';
-import 'package:ami/constants/strings.dart';
-import 'package:ami/modules/blankColumn.dart';
-import 'package:ami/modules/menu_option.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../modules/blank_column.dart';
+import '../modules/menu_option.dart';
 import 'colours.dart';
+import 'list.dart';
+import 'strings.dart';
 
 class Components {
-  // BorderRadius topsBorderRadius() {
-  //   return BorderRadius.only(
-  //     topLeft: Radius.circular(24.0),
-  //     topRight: Radius.circular(24.0),
-  //   );
-  // }
 
-  void _launchURL(_url) async => await canLaunch(_url)
-      ? await launch(_url)
-      : throw 'Could not launch $_url';
+  Future<void> _launchURL(Uri url) async => await canLaunchUrl(url)
+      ? await launchUrl(url)
+      : ArgumentError('Could not launch $url') ;
 
   IconButton socialMediaIconButton(
-      IconData _icon,
-      String _tooltip,
-      String _url,
-      ) {
-    return IconButton(
-      icon: FaIcon(_icon),
+      IconData icon,
+      String tooltip,
+      String url,
+      ) => IconButton(
+      icon: FaIcon(icon),
       color: Colors.white,
-      tooltip: _tooltip,
+      tooltip: tooltip,
       hoverColor: Colors.blueGrey.shade900,
-      splashRadius: 20.0,
-      iconSize: 20.0,
-      onPressed: () {
-        _launchURL(_url);
+      splashRadius: 20,
+      iconSize: 20,
+      onPressed: () async {
+        await _launchURL(Uri.parse(url));
       },
     );
-  }
 
-  ClipRRect appbarImage() {
-    return ClipRRect(
-      borderRadius: BorderRadius.all(
-        Radius.circular(8.0),
+  ClipRRect appbarImage() => ClipRRect(
+      borderRadius: const BorderRadius.all(
+        Radius.circular(8),
       ),
       child: Image(
         image: NetworkImage(
-          Strings().kImageLocation.toString(),
+          Strings().kImageLocation,
         ),
         width: 50,
         height: 50,
       ),
     );
-  }
 
-  AppBar kSmallAppBar() {
-    return AppBar(
+  AppBar kSmallAppBar() => AppBar(
       title: Text(Strings().kName),
       backgroundColor: Colors.blueGrey.shade900,
-      actions: [
+      actions: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: Components().appbarImage(),
         ),
       ],
     );
-  }
 
-  AppBar kLargeScreenAppBar() {
-    return AppBar(
+  AppBar kLargeScreenAppBar() => AppBar(
       title: Text(
         '${Strings().kName} | ${Strings().kPositionTitle} | ${Strings().kEmail}',
         style: TextStyle(
           fontWeight: FontWeight.w500,
           color: Colours().kAppBarLevelColor,
-          fontSize: 20.0,
+          fontSize: 20,
         ),
       ),
       backgroundColor: Colors.white,
       shadowColor: Colours().kShadowColor,
-      elevation: 8.0,
-      actions: [
+      elevation: 8,
+      actions: <Widget>[
         Padding(
           padding: const EdgeInsets.only(
-              top: 8.0, bottom: 8.0, left: 0.0, right: 25.0),
+              top: 8, bottom: 8, right: 25,),
           child: Components().appbarImage(),
         ),
       ],
     );
-  }
 
 
-  ListView buildListView(controller, getIndex, profileIndex) {
-    //print('Menu Item length: ${AllListItem().kMenuItem.length}');
-    return ListView.builder(
+  ListView buildListView( ScrollController controller, Function(int) getIndex, int profileIndex) => ListView.builder(
       controller: controller,
       itemCount: AllListItem().kMenuItem.length,
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: EdgeInsets.only(right: 20.0, left: 20.0),
+      itemBuilder: (BuildContext context, int index) => Padding(
+          padding: const EdgeInsets.only(right: 20, left: 20),
           child: GestureDetector(
             onTap: () {
               if(profileIndex != index){
@@ -113,61 +97,52 @@ class Components {
               elevation: profileIndex == index ? 8.0 : 0.0,
             ),
           ),
-        );
-      },
+        ),
     );
-  }
 
-  ListView kLargeScreenBodyItem(width) {
-    return ListView.builder(
+  ListView kLargeScreenBodyItem(double width) => ListView.builder(
       itemCount: AllListItem().kPages.length,
-      itemBuilder: (context, index) {
-        return Row(
-          children: [
-            BlankColumn(width),
+      itemBuilder: (BuildContext context, int index) => Row(
+          children: <Widget>[
+            BlankColumn(width: width,),
             Expanded(
               flex: 8,
               child: Card(
                 color: Colors.transparent,
-                elevation: 8.0,
+                elevation: 8,
                 shadowColor: Colours().kShadowColor,
-                child: Container(
+                child: ColoredBox(
                   color:Colors.white,
                   child: AllListItem().kPages[index],
                 ),
               ),
             ),
-            BlankColumn(width),
+            BlankColumn(width: width),
           ],
-        );
-      },
+        ),
     );
-  }
 
-  Text copyrightText() {
-    return Text(
+  Text copyrightText() => const Text(
       '© Copyright Subrota Debnath',
       style: TextStyle(
         color: Colors.deepOrange,
         fontWeight: FontWeight.normal,
-        fontSize: 20.0,
+        fontSize: 20,
       ),
     );
-  }
 
-  Text blockTitleText(String title) {
-    return Text(
+  Text blockTitleText(String title) => Text(
       title,
       style: GoogleFonts.dancingScript(
         fontWeight: FontWeight.w700,
         fontStyle: FontStyle.normal,
-        fontSize: 50.0,
+        fontSize: 50,
         color: Colours().kAppBarLevelColor,
         textStyle: TextStyle(
-          shadows: [
+          shadows: <Shadow>[
             Shadow(
-              offset: Offset(10.0, 10.0),
-              blurRadius: 3.0,
+              offset: const Offset(10, 10),
+              blurRadius: 3,
               color: Colours().kAppBarLevelColor.withOpacity(.5),
               //color: Colors.blueGrey,
               //color: Color.fromARGB(255, 0, 0, 0),
@@ -177,104 +152,83 @@ class Components {
       ),
 
     );
-  }
 
-  Text blockDodyText(String bodyText) {
-    //handlee
-    //Open Sans Condensed
-    //Indie Flower
-    //mandali
-    return Text(
+  Text blockDodyText(String bodyText) => Text(
       bodyText,
       style: GoogleFonts.handlee(
         fontWeight: FontWeight.normal,
         fontStyle: FontStyle.normal,
-        fontSize: 20.0,
+        fontSize: 20,
         color: Colors.blueGrey.shade700,
       ),
       textAlign: TextAlign.justify,
       textDirection: TextDirection.ltr,
     );
-  }
 
-  Text titleText(String title, ) {
-    return Text(
+  Text titleText(String title, ) => Text(
       title,
-      style: TextStyle(
-        fontSize: 18.0,
+      style: const TextStyle(
+        fontSize: 18,
         color: Colors.white,
         fontWeight: FontWeight.normal,
         fontStyle: FontStyle.italic,
       ),
     );
-  }
 
-  Text contactText() {
-    return Text(
-      '${Strings().kContact}',
-      style: TextStyle(
-        fontSize: 18.0,
+  Text contactText() => Text(
+      Strings().kContact,
+      style: const TextStyle(
+        fontSize: 18,
         color: Colors.white,
         fontWeight: FontWeight.normal,
         fontStyle: FontStyle.italic,
       ),
     );
-  }
 
-  Text emailText() {
-    return Text(
-      '${Strings().kEmail}',
-      style: TextStyle(
-        fontSize: 18.0,
+  Text emailText() => Text(
+      Strings().kEmail,
+      style: const TextStyle(
+        fontSize: 18,
         color: Colors.white,
         fontWeight: FontWeight.normal,
         fontStyle: FontStyle.italic,
       ),
     );
-  }
 
-  Text cityText() {
-    return Text(
-      '${Strings().kCity}',
-      style: TextStyle(
-        fontSize: 18.0,
+  Text cityText() => Text(
+      Strings().kCity,
+      style: const TextStyle(
+        fontSize: 18,
         color: Colors.white,
         fontWeight: FontWeight.normal,
       ),
     );
-  }
 
-  Text degreeText() {
-    return Text(
-      '${Strings().kDegree}',
-      style: TextStyle(
-        fontSize: 18.0,
+  Text degreeText() => Text(
+      Strings().kDegree,
+      style: const TextStyle(
+        fontSize: 18,
         color: Colors.white,
         fontWeight: FontWeight.normal,
       ),
     );
-  }
 
-  Text positionText() {
-    return Text(
-      '${Strings().kPositionTitle}',
-      style: TextStyle(
-        fontSize: 24.0,
+  Text positionText() => Text(
+      Strings().kPositionTitle,
+      style: const TextStyle(
+        fontSize: 24,
         color: Colors.white,
         fontWeight: FontWeight.normal,
       ),
     );
-  }
 
-  Text nameText() {
-    return Text(
-      '${Strings().kName}',
-      style: TextStyle(
-        fontSize: 40.0,
+  Text nameText() => Text(
+      Strings().kName,
+      style: const TextStyle(
+        fontSize: 40,
         color: Colors.white,
         fontWeight: FontWeight.normal,
       ),
     );
-  }
 
 }

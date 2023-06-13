@@ -5,16 +5,18 @@ abstract class ThemeEvent extends Equatable {
 }
 
 class ThemeEventSetUp extends ThemeEvent {
-  final BuildContext context;
   const ThemeEventSetUp({required this.context}) : super();
+  final BuildContext context;
+
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => <Object>[] ;
 }
 class ThemeEventChangeTheme extends ThemeEvent {
-  final BuildContext context;
   const ThemeEventChangeTheme({required this.context}) : super();
+  final BuildContext context;
+
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => <Object> [];
 }

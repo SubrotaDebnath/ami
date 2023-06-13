@@ -1,12 +1,12 @@
-import 'package:ami/business_logic/theme_bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../business_logic/theme_bloc/theme_bloc.dart';
 import '../../constants/navigation/routes.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               context.read<ThemeBloc>().add(ThemeEventChangeTheme(context: context));
             },
-            child: Text('Theme'),
+            child: const Text('Theme'),
           ),
         ],
       ),
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
             context.go(Routes.kAboutScreen);
             // Navigator.pushNamed(context,Routes.kAboutScreen);
           },
-          child: Card(child: Container(height: 300,width: 300,),))
-    );
+          child: const Card(child: SizedBox(height: 300,width: 300,),),)
+    ,);
   }
 }

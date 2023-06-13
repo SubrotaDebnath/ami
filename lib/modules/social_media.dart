@@ -1,12 +1,13 @@
-import 'package:ami/constants/component.dart';
-import 'package:ami/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../constants/component.dart';
+import '../constants/strings.dart';
+
 class SocialMediaRow extends StatelessWidget {
   const SocialMediaRow({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,27 +15,27 @@ class SocialMediaRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Components().socialMediaIconButton(FontAwesomeIcons.linkedin,
-            'Linked In', Strings().kLinkedInUrl),
+            'Linked In', Strings().kLinkedInUrl,),
         Components().socialMediaIconButton(
-            FontAwesomeIcons.githubSquare,
+            FontAwesomeIcons.squareGithub,
             'Github',
-            Strings().kGithubUrl),
+            Strings().kGithubUrl,),
         Components().socialMediaIconButton(
-            FontAwesomeIcons.instagramSquare,
+            FontAwesomeIcons.squareInstagram,
             'Instagram',
-            Strings().kInstagramUrl),
+            Strings().kInstagramUrl,),
         Components().socialMediaIconButton(
-            FontAwesomeIcons.facebookSquare,
+            FontAwesomeIcons.squareFacebook,
             'Facebook',
-            Strings().kFacebookUrl),
+            Strings().kFacebookUrl,),
         Components().socialMediaIconButton(
-            FontAwesomeIcons.twitterSquare,
+            FontAwesomeIcons.squareTwitter,
             'Twitter',
-            Strings().kTwitterUrl),
+            Strings().kTwitterUrl,),
         Components().socialMediaIconButton(
             FontAwesomeIcons.stackOverflow,
             'Stack Overflow',
-            Strings().kStackOverflowUrl),
+            Strings().kStackOverflowUrl,),
       ],
     );
   }

@@ -1,12 +1,12 @@
-import 'package:ami/screens/about.dart';
-import 'package:ami/screens/large_scrren_services.dart';
-import 'package:ami/screens/mobile_about.dart';
-import 'package:ami/screens/mobile_services.dart';
-
 import 'package:flutter/material.dart';
 
+import '../screens/about.dart';
+import '../screens/large_scrren_services.dart';
+import '../screens/mobile_about.dart';
+import '../screens/mobile_services.dart';
+
 class AllListItem {
-  final List kMenuItem = [
+  final List<String> kMenuItem = <String>[
     'About',
     //'Portfolio',
     'Services',
@@ -16,7 +16,7 @@ class AllListItem {
     //'Download CV'
   ];
 
-  final List kMenuIcon = [
+  final List<IconData> kMenuIcon = <IconData>[
     Icons.person,
     Icons.engineering,
     Icons.precision_manufacturing,
@@ -26,22 +26,22 @@ class AllListItem {
     Icons.file_download,
   ];
 
-  final List kPages = [
+  final List<Widget> kPages = <Widget>[
     //Services(),
-    About(),
+    const About(),
     //Portfolio(),
-    Services(),
+    const Services(),
     //Resume(),
     //Blog(),
     //Contact(),
     //About(),
   ];
 
-  final List kMobilePages = [
+  final List<Widget> kMobilePages = <Widget>[
     //MobileServices(),
-    MobileAbout(),
+    const MobileAbout(),
     //Portfolio(),
-    MobileServices(),
+    const MobileServices(),
     //Resume(),
     //Blog(),
     //Contact(),

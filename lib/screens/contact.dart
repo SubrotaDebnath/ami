@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 class Contact extends StatelessWidget {
-  const Contact({Key? key}) : super(key: key);
+  const Contact({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.amber,
-      height: 800.0,
+      height: 800,
       width: double.infinity,
-      child: Center(
+      child: const Center(
         child: Text(
           'This is  the contact Page',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 40.0,
+            fontSize: 40,
           ),
         ),
       ),

@@ -1,18 +1,19 @@
-import 'package:ami/constants/component.dart';
-import 'package:ami/constants/strings.dart';
-import 'package:ami/modules/social_media.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/component.dart';
+import '../constants/strings.dart';
+import '../modules/social_media.dart';
 
 class MobileAbout extends StatelessWidget {
   const MobileAbout({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: 520,
           child: Stack(
             children: [
@@ -30,7 +31,7 @@ class MobileAbout extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     // color: Colors.pink,
                     height: 140,
                     child: Align(
@@ -53,8 +54,8 @@ class MobileAbout extends StatelessWidget {
                       Components().titleText(Strings().kCity),
                       Components().titleText(Strings().kEmail),
                       Components().titleText(Strings().kContact),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      const Padding(
+                        padding: EdgeInsets.all(8),
                         child: SocialMediaRow(),
                       ),
                     ],
@@ -65,7 +66,7 @@ class MobileAbout extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               Components().blockTitleText(Strings().kAboutTitleText),

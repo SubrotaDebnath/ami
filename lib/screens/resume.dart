@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 
 class Resume extends StatelessWidget {
-  const Resume({Key? key}) : super(key: key);
+  const Resume({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
+  Widget build(BuildContext context) => Container(
       color: Colors.indigo,
-      height: 800.0,
+      height: 800,
       width: double.infinity,
-      child: Center(
+      child: const Center(
         child: Text(
           'This is  a Resume Page',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 40.0,
+            fontSize: 40,
           ),
         ),
       ),
     );
-  }
 }

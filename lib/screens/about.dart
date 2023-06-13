@@ -1,17 +1,17 @@
-import 'package:ami/constants/colours.dart';
-import 'package:ami/constants/component.dart';
-import 'package:ami/constants/strings.dart';
-import 'package:ami/modules/social_media.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/colours.dart';
+import '../constants/component.dart';
+import '../constants/strings.dart';
+import '../modules/social_media.dart';
+
 class About extends StatelessWidget {
-  const About({Key? key}) : super(key: key);
+  const About({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
+    var size = MediaQuery.of(context).size;
+    return SizedBox(
       // decoration: BoxDecoration(
       //   color: Colors.pink,
       //   borderRadius: Components().topsBorderRadius(),
@@ -26,7 +26,6 @@ class About extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
-                flex: 1,
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent,
@@ -41,30 +40,28 @@ class About extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 1,
                 child: Container(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16),
                   color: Colors.transparent,
-                  child: Container(
+                  child: SizedBox(
                     width: size.width < 1150
                         ? 850
                         : MediaQuery.of(context).size.width / 2,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Align(
                           alignment: Alignment.topCenter,
                           child: Components().copyrightText(),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           //height: (MediaQuery.of(context).size.height / 3) / 2,
                           height: 150,
                         ),
                         Components().blockTitleText(Strings().kAboutTitleText),
-                        SizedBox(
-                          height: 8.0,
+                        const SizedBox(
+                          height: 8,
                         ),
                         Components().blockDodyText(Strings().kAboutMeBodyText),
                       ],
@@ -76,10 +73,10 @@ class About extends StatelessWidget {
           ),
           Card(
             color: Colors.transparent,
-            elevation: 16.0,
+            elevation: 16,
             shadowColor: Colours().kShadowColor,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
+              borderRadius: const BorderRadius.all(
                 Radius.circular(16),
               ),
               side: BorderSide(
@@ -95,15 +92,15 @@ class About extends StatelessWidget {
                   : MediaQuery.of(context).size.width / 2,
               decoration: BoxDecoration(
                 color: Colors.blueGrey.withOpacity(.5),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(16.0),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(16),
                 ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
                     child: Stack(
                       children: [
                         Column(
@@ -113,19 +110,19 @@ class About extends StatelessWidget {
                           children: [
                             Components().nameText(),
                             Components().positionText(),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Components().degreeText(),
                             Components().cityText(),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Components().emailText(),
                             Components().contactText(),
                           ],
                         ),
-                        Align(
+                        const Align(
                           alignment: Alignment.bottomCenter,
                           child: SocialMediaRow(),
                         )
@@ -138,8 +135,8 @@ class About extends StatelessWidget {
                       width: 250,
                       height: 350,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(16.0),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(16),
                         ),
                         color: Colors.transparent,
                         image: DecorationImage(

@@ -6,14 +6,14 @@ class Preferences {
     required String keyName,
     required bool value,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
-    return await prefs.setBool(keyName, value);
+    var prefs = await SharedPreferences.getInstance();
+    return  prefs.setBool(keyName, value);
   }
 
   Future<bool> getBoolValue({
     required String keyName,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
+    var prefs = await SharedPreferences.getInstance();
     return prefs.getBool(keyName) ?? false;
   }
 
@@ -21,14 +21,14 @@ class Preferences {
     required String keyName,
     required int value,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
-    return await prefs.setInt(keyName, value);
+    var prefs = await SharedPreferences.getInstance();
+    return  prefs.setInt(keyName, value);
   }
 
   Future<int> getIntValue({
     required String keyName,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
+    var prefs = await SharedPreferences.getInstance();
     return prefs.getInt(keyName) ?? 0;
   }
 
@@ -36,14 +36,14 @@ class Preferences {
     required String keyName,
     required double value,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
-    return await prefs.setDouble(keyName, value);
+    var prefs = await SharedPreferences.getInstance();
+    return  prefs.setDouble(keyName, value);
   }
 
   Future<double> getDoubleValue({
     required String keyName,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
+    var prefs = await SharedPreferences.getInstance();
     return prefs.getDouble(keyName) ?? 0.0;
   }
 
@@ -51,24 +51,24 @@ class Preferences {
     required String keyName,
     required String value,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
-    return await prefs.setString(keyName, value);
+    var prefs = await SharedPreferences.getInstance();
+    return  prefs.setString(keyName, value);
   }
 
   Future<String> getStringValue({
     required String keyName,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
+    var prefs = await SharedPreferences.getInstance();
     return prefs.getString(keyName) ?? '';
   }
 
   Future<bool> clearAll() async {
-    final prefs = await SharedPreferences.getInstance();
+    var prefs = await SharedPreferences.getInstance();
     return prefs.clear();
   }
 
   Future<bool> clearOne({required String keyName}) async {
-    final prefs = await SharedPreferences.getInstance();
+    var prefs = await SharedPreferences.getInstance();
     return prefs.remove(keyName);
   }
 }

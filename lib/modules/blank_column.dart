@@ -1,9 +1,12 @@
+
 import 'package:flutter/material.dart';
 
 class BlankColumn extends StatelessWidget {
+
+  const BlankColumn({required this.width, super.key});
+
   final double width;
 
-  BlankColumn(this.width);
 
   @override
   Widget build(BuildContext context) {

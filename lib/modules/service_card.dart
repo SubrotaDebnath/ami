@@ -1,22 +1,27 @@
-import 'package:ami/constants/colours.dart';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/colours.dart';
+
 class ServiceCard extends StatelessWidget {
+
+  const ServiceCard({
+    required this.icon,
+    required this.title,
+    required this.description,
+    required this.color,
+    required this.iconColor,
+    required this.textColor,
+    super.key,}
+  );
+
   final IconData icon;
   final String title;
   final String description;
   final Color color;
   final Color iconColor;
   final Color textColor;
-
-  ServiceCard(
-    this.icon,
-    this.title,
-    this.description,
-    this.color,
-    this.iconColor,
-    this.textColor,
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +34,11 @@ class ServiceCard extends StatelessWidget {
         child: Container(
           height: /*width<300?330: width<600 && width> 500? 230:*/ 290,
           color: Colors.transparent,
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Icon(
@@ -42,7 +46,7 @@ class ServiceCard extends StatelessWidget {
                 color: iconColor,
                 size: 50,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Text(
@@ -56,7 +60,7 @@ class ServiceCard extends StatelessWidget {
                 softWrap: true,
                 overflow: TextOverflow.ellipsis,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Text(
@@ -68,12 +72,22 @@ class ServiceCard extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
             ],
           ),
         ),
       );
+  }
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty<IconData>('icon', icon))
+    ..add(StringProperty('title', title))
+    ..add(StringProperty('description', description))
+    ..add(ColorProperty('color', color))
+    ..add(ColorProperty('iconColor', iconColor))
+    ..add(ColorProperty('textColor', textColor));
   }
 }

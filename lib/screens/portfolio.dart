@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 class Portfolio extends StatelessWidget {
-  const Portfolio({Key? key}) : super(key: key);
+  const Portfolio({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.cyan,
-      height: 800.0,
+      height: 800,
       width: double.infinity,
-      child: Center(
+      child: const Center(
         child: Text(
           'This is  the PortFolio Page',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 40.0,
+            fontSize: 40,
           ),
         ),
       ),

@@ -1,17 +1,21 @@
-import 'package:ami/constants/colours.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/colours.dart';
+
 class MenuOption extends StatelessWidget {
+
+
+  const MenuOption(
+      {super.key, this.elevation = 8.0,
+        this.levelTitle = 'Title',
+        this.color = Colors.grey,
+        this.icon = Icons.account_box_rounded,
+      });
+
   final double elevation;
   final String levelTitle;
   final Color color;
   final IconData icon;
-
-  MenuOption(
-      {this.elevation = 8.0,
-        this.levelTitle = 'Title',
-        this.color = Colors.grey,
-        this.icon = Icons.account_box_rounded});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class MenuOption extends StatelessWidget {
       elevation: elevation,
       shadowColor: Colours().kShadowColor,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
         side: BorderSide(
           width: 0.5,
           color: color,
@@ -27,26 +31,25 @@ class MenuOption extends StatelessWidget {
       ),
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(20.0),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
           color: Colors.transparent,
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Icon(
               icon,
               color: color,
-              size: 20.0,
+              size: 20,
             ),
-            SizedBox(
-              width: 20.0,
+            const SizedBox(
+              width: 20,
             ),
             Text(
               levelTitle,
               style: TextStyle(
                 color: color,
-                fontSize: 16.0,
+                fontSize: 16,
                 fontWeight: FontWeight.w600,
               ),
             ),

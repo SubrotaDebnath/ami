@@ -1,19 +1,21 @@
-import 'package:ami/business_logic/portfolio_observer.dart';
-import 'package:ami/business_logic/theme_bloc/theme_bloc.dart';
-import 'package:ami/constants/navigation/routers.dart';
-import 'package:ami/constants/strings.dart';
-import 'package:ami/constants/theme/app_theme.dart';
-import 'package:ami/screens/large_screen_view.dart';
-import 'package:ami/screens/mobile_screen_view.dart';
-import 'package:ami/screens/tablet_screen_view.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'business_logic/portfolio_observer.dart';
+import 'business_logic/theme_bloc/theme_bloc.dart';
+import 'constants/navigation/routers.dart';
+import 'constants/strings.dart';
+import 'constants/theme/app_theme.dart';
+import 'screens/large_screen_view.dart';
+import 'screens/mobile_screen_view.dart';
+import 'screens/tablet_screen_view.dart';
 
 
 void main() {
   Bloc.observer = PortfolioObserver();
   runApp(
-    MyApp(),
+    const MyApp(),
   );
 }
 
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeBloc>(
-          create: (BuildContext context) => ThemeBloc()..add(ThemeEventSetUp(context: context)),
+          create: (context) => ThemeBloc()..add(ThemeEventSetUp(context: context)),
         ),
       ],
       child: BlocConsumer<ThemeBloc, ThemeState>(
@@ -51,12 +53,14 @@ class MyApp extends StatelessWidget {
 }
 
 class ViewSelector extends StatefulWidget {
+  const ViewSelector({super.key});
+
   @override
-  _ViewSelectorState createState() => _ViewSelectorState();
+  ViewSelectorState createState() => ViewSelectorState();
 }
 
-class _ViewSelectorState extends State<ViewSelector> {
-  Size screenSize = Size(0, 0);
+class ViewSelectorState extends State<ViewSelector> {
+  Size screenSize =  Size.zero;
 
   @override
   Widget build(BuildContext context) {
@@ -65,10 +69,15 @@ class _ViewSelectorState extends State<ViewSelector> {
     });
 
     return  screenSize.width >= 992
-        ? WebView(screenSize.width)
+        ? WebView(width: screenSize.width)
         : screenSize.width < 992 && screenSize.width > 600
-        ?TabView()
-        : MobileView();
+        ?const TabView()
+        : const MobileView();
 
+  }
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<Size>('screenSize', screenSize));
   }
 }

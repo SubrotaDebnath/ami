@@ -1,25 +1,27 @@
-import 'package:ami/constants/component.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+
+import '../constants/component.dart';
 
 class WebView extends StatefulWidget {
+  const WebView({required this.width, super.key});
+
   final double width;
 
-  WebView(this.width);
-
   @override
-  _WebViewState createState() => _WebViewState();
+  WebViewState createState() => WebViewState();
 }
 
-class _WebViewState extends State<WebView> {
+class WebViewState extends State<WebView> {
   int profileIndex = 0;
   final ScrollController controller = ScrollController();
 
-  void getIndex(index){
+  void getIndex(int index) {
     setState(() {
       profileIndex = index;
-      print('Index: $index');
+      if (kDebugMode) {
+        print('Index: $index');
+      }
     });
   }
 
@@ -30,7 +32,7 @@ class _WebViewState extends State<WebView> {
       appBar: Components().kLargeScreenAppBar(),
       body: Row(
         children: [
-          Container(
+          ColoredBox(
             //padding: EdgeInsets.only(top: 16.0),
             color: Colors.white,
             child: Card(
@@ -38,15 +40,16 @@ class _WebViewState extends State<WebView> {
               //shadowColor: Colors.pink,
               //shadowColor: Colours().kShadowColor,
               child: Container(
-                padding: EdgeInsets.only(top: 16.0, bottom: 32.0),
+                padding: const EdgeInsets.only(top: 16, bottom: 32),
                 width: 250,
                 color: Colors.transparent,
-                child: Components().buildListView(controller,getIndex, profileIndex),
+                child: Components()
+                    .buildListView(controller, getIndex, profileIndex),
               ),
             ),
           ),
           Expanded(
-            child: Container(
+            child: ColoredBox(
               color: Colors.white,
               child: Components().kLargeScreenBodyItem(widget.width),
             ),
@@ -55,6 +58,4 @@ class _WebViewState extends State<WebView> {
       ),
     );
   }
-
 }
-

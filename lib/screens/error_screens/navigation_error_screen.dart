@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NavigationErrorScreen extends StatelessWidget {
-  const NavigationErrorScreen({Key? key}) : super(key: key);
+  const NavigationErrorScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

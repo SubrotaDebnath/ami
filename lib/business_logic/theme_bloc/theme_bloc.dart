@@ -16,7 +16,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   }
 }
 
- _onThemeEventSetUp(ThemeEventSetUp event, Emitter<ThemeState> emit) async {
+_onThemeEventSetUp(ThemeEventSetUp event, Emitter<ThemeState> emit) async {
   emit(ThemeInitial());
   int themeStatus = await Preferences().getIntValue(
     keyName: PreferencesKey.kThemeStatus,
@@ -24,9 +24,6 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
 
   Brightness brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness;
 
-  // Brightness brightness = MediaQueryData.fromView(View.of(
-  //   event.context,
-  // ),).platformBrightness;
 
   if (themeStatus == ThemeStatus.dark.index) {
     emit(DarkTheme());
@@ -38,11 +35,19 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
       value: ThemeStatus.system.index,
     );
     if (brightness == Brightness.dark) {
-      emit(Default(
-          themeStatus: ThemeStatus.system, themeData: ThemeData.dark(),),);
+      emit(
+        Default(
+          themeStatus: ThemeStatus.system,
+          themeData: ThemeData.dark(),
+        ),
+      );
     } else {
-      emit(Default(
-          themeStatus: ThemeStatus.system, themeData: ThemeData.light(),),);
+      emit(
+        Default(
+          themeStatus: ThemeStatus.system,
+          themeData: ThemeData.light(),
+        ),
+      );
     }
   }
 }
@@ -57,9 +62,6 @@ _onThemeEventChangeTheme(
   );
 
   Brightness brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness;
-  // Brightness brightness = MediaQueryData.fromView(View.of(
-  //   event.context,
-  // ),).platformBrightness;
 
   //Dark
   if (themeStatus == ThemeStatus.dark.index) {
@@ -83,13 +85,21 @@ _onThemeEventChangeTheme(
     );
     //Dark
     if (brightness == Brightness.dark) {
-      emit(Default(
-          themeStatus: ThemeStatus.system, themeData: ThemeData.light(),),);
+      emit(
+        Default(
+          themeStatus: ThemeStatus.system,
+          themeData: ThemeData.light(),
+        ),
+      );
     }
     //Light
     else {
-      emit(Default(
-          themeStatus: ThemeStatus.system, themeData: ThemeData.dark(),),);
+      emit(
+        Default(
+          themeStatus: ThemeStatus.system,
+          themeData: ThemeData.dark(),
+        ),
+      );
     }
   }
 }

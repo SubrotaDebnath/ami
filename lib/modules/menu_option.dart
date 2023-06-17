@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import '../constants/colours.dart';
 
 class MenuOption extends StatelessWidget {
-
-
-  const MenuOption(
-      {super.key, this.elevation = 8.0,
-        this.levelTitle = 'Title',
-        this.color = Colors.grey,
-        this.icon = Icons.account_box_rounded,
-      });
+  const MenuOption({
+    super.key,
+    this.elevation = 8.0,
+    this.levelTitle = 'Title',
+    this.color = Colors.grey,
+    this.icon = Icons.account_box_rounded,
+  });
 
   final double elevation;
   final String levelTitle;

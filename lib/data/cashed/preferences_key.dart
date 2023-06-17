@@ -18,7 +18,8 @@ class PreferencesKey {
   static const String kFCMToken = 'fcm_token';
   static const String kFCMTokenShouldNotUpdate = 'fcm_token_should_update';
   static const String kShownDashboardPopUps = 'shown_dashboard_pop_ups';
-  static const String kIsShownDashboardPopUpsToDay = 'k_is_shown_dashboard_pop_ups_to_day';
+  static const String kIsShownDashboardPopUpsToDay =
+      'k_is_shown_dashboard_pop_ups_to_day';
 
   ///Dashboard
 
@@ -35,7 +36,6 @@ class PreferencesKey {
   static const String kYourShopAdminMachineId = 'yourShopAdminMachineId';
   static const String kYourShopDevMachineId = 'yourShopDevMachineId';
   static const String kYourShopTableMachineId = 'yourShopTableMachineId';
-
 
   ///Laundry
   /// Laundry machine location
@@ -78,5 +78,6 @@ class PreferencesKey {
   static const String kIsUserFCMUpdated = 'isUserFCMUpdated';
 
   ///Notification Services
-  static const String kIsWashingPowderAlreadyClaimed = 'isWashingPowderAlreadyClaimed';
+  static const String kIsWashingPowderAlreadyClaimed =
+      'isWashingPowderAlreadyClaimed';
 }

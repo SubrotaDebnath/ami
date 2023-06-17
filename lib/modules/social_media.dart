@@ -14,28 +14,36 @@ class SocialMediaRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Components().socialMediaIconButton(FontAwesomeIcons.linkedin,
-            'Linked In', Strings().kLinkedInUrl,),
         Components().socialMediaIconButton(
-            FontAwesomeIcons.squareGithub,
-            'Github',
-            Strings().kGithubUrl,),
+          FontAwesomeIcons.linkedin,
+          'Linked In',
+          Strings().kLinkedInUrl,
+        ),
         Components().socialMediaIconButton(
-            FontAwesomeIcons.squareInstagram,
-            'Instagram',
-            Strings().kInstagramUrl,),
+          FontAwesomeIcons.squareGithub,
+          'Github',
+          Strings().kGithubUrl,
+        ),
         Components().socialMediaIconButton(
-            FontAwesomeIcons.squareFacebook,
-            'Facebook',
-            Strings().kFacebookUrl,),
+          FontAwesomeIcons.squareInstagram,
+          'Instagram',
+          Strings().kInstagramUrl,
+        ),
         Components().socialMediaIconButton(
-            FontAwesomeIcons.squareTwitter,
-            'Twitter',
-            Strings().kTwitterUrl,),
+          FontAwesomeIcons.squareFacebook,
+          'Facebook',
+          Strings().kFacebookUrl,
+        ),
         Components().socialMediaIconButton(
-            FontAwesomeIcons.stackOverflow,
-            'Stack Overflow',
-            Strings().kStackOverflowUrl,),
+          FontAwesomeIcons.squareTwitter,
+          'Twitter',
+          Strings().kTwitterUrl,
+        ),
+        Components().socialMediaIconButton(
+          FontAwesomeIcons.stackOverflow,
+          'Stack Overflow',
+          Strings().kStackOverflowUrl,
+        ),
       ],
     );
   }

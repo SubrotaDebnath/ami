@@ -5,17 +5,17 @@ class Resume extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-      color: Colors.indigo,
-      height: 800,
-      width: double.infinity,
-      child: const Center(
-        child: Text(
-          'This is  a Resume Page',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 40,
+        color: Colors.indigo,
+        height: 800,
+        width: double.infinity,
+        child: const Center(
+          child: Text(
+            'This is  a Resume Page',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 40,
+            ),
           ),
         ),
-      ),
-    );
+      );
 }

@@ -23,16 +23,13 @@ class Strings {
       'scratch for business or personal user. Also convert a website into a '
       'mobile app.';
 
-
   final String kServiceCardTitle_4 = 'Creative Look';
   final String kServiceCardBody_4 = 'Accessible to All Users. Well Planned'
       ' Information Architecture. Fast Load Times. Effective Navigation.';
 
-
   final String kServiceCardTitle_5 = 'Responsive Design';
   final String kServiceCardBody_5 = 'Less Effort. Smooth User Experience. '
       'Comfortable with any kind of mobile screen with wow look.';
-
 
   final String kServiceCardTitle_6 = 'Clean Code';
   final String kServiceCardBody_6 = 'Understandable and readable code, Always '

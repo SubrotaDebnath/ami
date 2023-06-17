@@ -14,7 +14,7 @@ class TabViewState extends State<TabView> {
 
   final ScrollController _controller = ScrollController();
 
-  void _getIndex(int index){
+  void _getIndex(int index) {
     setState(() {
       _profileIndex = index;
       //print('Index: $index');
@@ -27,7 +27,11 @@ class TabViewState extends State<TabView> {
     return Scaffold(
       appBar: Components().kSmallAppBar(),
       drawer: Drawer(
-        child: Components().buildListView(_controller, _getIndex, _profileIndex),
+        child: Components().buildListView(
+          _controller,
+          _getIndex,
+          _profileIndex,
+        ),
       ),
       body: Container(
         child: Components().kLargeScreenBodyItem(width),

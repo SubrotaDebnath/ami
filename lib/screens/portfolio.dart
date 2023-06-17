@@ -11,7 +11,7 @@ class Portfolio extends StatelessWidget {
       width: double.infinity,
       child: const Center(
         child: Text(
-          'This is  the PortFolio Page',
+          'This is  the Portfolio Page',
           style: TextStyle(
             color: Colors.white,
             fontSize: 40,

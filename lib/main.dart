@@ -28,21 +28,16 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: BlocConsumer<ThemeBloc, ThemeState>(
-  listener: (context, themeState) {
-  },
-  builder: (context, themeState) {
-    return MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        title: Strings().kName,
-        routerConfig: Routers().router,
-        // routeInformationParser: Routers().router.routeInformationParser ,
-        // routerDelegate: Routers().router.routerDelegate,
-        // initialRoute: Routes.kHomeScreen,
-        // onGenerateRoute: RouteGenerator.generateRoute,
-        theme:AppTheme(themeState: themeState).themeData(),
-      );
-  },
-),
+        listener: (context, themeState) {},
+        builder: (context, themeState) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            title: Strings().kName,
+            routerConfig: Routers().router,
+            theme: AppTheme(themeState: themeState).themeData(),
+          );
+        },
+      ),
     );
   }
 }

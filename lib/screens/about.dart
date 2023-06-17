@@ -29,7 +29,7 @@ class About extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent,
-                   // borderRadius: Components().topsBorderRadius(),
+                    // borderRadius: Components().topsBorderRadius(),
                     image: DecorationImage(
                       fit: BoxFit.fitWidth,
                       image: AssetImage(
@@ -156,5 +156,4 @@ class About extends StatelessWidget {
       ),
     );
   }
-
 }

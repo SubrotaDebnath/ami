@@ -20,19 +20,26 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           OutlinedButton(
             onPressed: () {
-              context.read<ThemeBloc>().add(ThemeEventChangeTheme(context: context));
+              context
+                  .read<ThemeBloc>()
+                  .add(ThemeEventChangeTheme(context: context));
             },
             child: const Text('Theme'),
           ),
         ],
       ),
       body: InkWell(
-          onTap: (){
-
-            context.go(Routes.kAboutScreen);
-            // Navigator.pushNamed(context,Routes.kAboutScreen);
-          },
-          child: const Card(child: SizedBox(height: 300,width: 300,),),)
-    ,);
+        onTap: () {
+          context.go(Routes.kAboutScreen);
+          // Navigator.pushNamed(context,Routes.kAboutScreen);
+        },
+        child: const Card(
+          child: SizedBox(
+            height: 300,
+            width: 300,
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -8,15 +8,14 @@ class ThemeEventSetUp extends ThemeEvent {
   const ThemeEventSetUp({required this.context}) : super();
   final BuildContext context;
 
-
   @override
-  List<Object?> get props => <Object>[] ;
+  List<Object?> get props => <Object>[];
 }
+
 class ThemeEventChangeTheme extends ThemeEvent {
   const ThemeEventChangeTheme({required this.context}) : super();
   final BuildContext context;
 
-
   @override
-  List<Object?> get props => <Object> [];
+  List<Object?> get props => <Object>[];
 }

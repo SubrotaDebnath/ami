@@ -12,6 +12,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     //Error pages
     default:
-      return MaterialPageRoute( builder: (_) => const NavigationErrorScreen());
+      return MaterialPageRoute(builder: (_) => const NavigationErrorScreen());
   }
 }

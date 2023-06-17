@@ -11,15 +11,15 @@ class MobileBody extends StatelessWidget {
     return ListView.builder(
       itemCount: AllListItem().kMobilePages.length,
       itemBuilder: (context, index) {
-    return Card(
-      color: Colors.transparent,
-      elevation: 8,
-      shadowColor: Colours().kShadowColor,
-      child: ColoredBox(
-        color: Colors.white,
-        child: AllListItem().kMobilePages[index],
-      ),
-    );
+        return Card(
+          color: Colors.transparent,
+          elevation: 8,
+          shadowColor: Colours().kShadowColor,
+          child: ColoredBox(
+            color: Colors.white,
+            child: AllListItem().kMobilePages[index],
+          ),
+        );
       },
     );
   }

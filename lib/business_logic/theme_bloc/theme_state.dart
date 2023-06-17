@@ -1,8 +1,6 @@
 part of 'theme_bloc.dart';
 
-
 abstract class ThemeState extends Equatable {
-
   const ThemeState({
     required this.themeData,
     required this.themeStatus,
@@ -15,9 +13,9 @@ abstract class ThemeState extends Equatable {
 class ThemeInitial extends ThemeState {
   ThemeInitial()
       : super(
-    themeStatus: ThemeStatus.system,
-    themeData: ThemeData.dark(),
-  );
+          themeStatus: ThemeStatus.system,
+          themeData: ThemeData.dark(),
+        );
 
   @override
   List<Object> get props => <Object>[];
@@ -26,9 +24,9 @@ class ThemeInitial extends ThemeState {
 class DarkTheme extends ThemeState {
   DarkTheme()
       : super(
-    themeStatus: ThemeStatus.dark,
-    themeData: ThemeData.dark(),
-  );
+          themeStatus: ThemeStatus.dark,
+          themeData: ThemeData.dark(),
+        );
 
   @override
   List<Object?> get props => <Object>[];
@@ -37,16 +35,15 @@ class DarkTheme extends ThemeState {
 class LightTheme extends ThemeState {
   LightTheme()
       : super(
-    themeStatus: ThemeStatus.light,
-    themeData: ThemeData.light(),
-  );
+          themeStatus: ThemeStatus.light,
+          themeData: ThemeData.light(),
+        );
 
   @override
   List<Object?> get props => <Object>[];
 }
 
 class Default extends ThemeState {
-
   const Default({
     required super.themeStatus,
     required super.themeData,

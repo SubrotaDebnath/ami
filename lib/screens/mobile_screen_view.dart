@@ -15,7 +15,7 @@ class MobileViewState extends State<MobileView> {
 
   final ScrollController controller = ScrollController();
 
-  void getIndex(int index){
+  void getIndex(int index) {
     setState(() {
       profileIndex = index;
       //print('Index: $index');

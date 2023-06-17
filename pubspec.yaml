@@ -1,5 +1,5 @@
 name: ami
-description: A new Flutter project.
+description: Portfolio For Subrota Debnath with flutter.
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -16,7 +16,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.3
   font_awesome_flutter: ^10.4.0
-  go_router: ^7.1.1
+  go_router: ^8.0.5
   google_fonts: ^5.0.0
   http: ^1.0.0
   intl: ^0.18.1
@@ -26,9 +26,11 @@ dependencies:
   url_launcher: ^6.1.11
 
 dev_dependencies:
+  bloc_test: ^9.1.3
   flutter_lints: ^2.0.1
-
   flutter_test:
+    sdk: flutter
+  integration_test:
     sdk: flutter
 
 

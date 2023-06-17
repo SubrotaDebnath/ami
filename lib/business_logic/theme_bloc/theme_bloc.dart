@@ -21,9 +21,12 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   int themeStatus = await Preferences().getIntValue(
     keyName: PreferencesKey.kThemeStatus,
   );
-  Brightness brightness = MediaQueryData.fromView(View.of(
-    event.context,
-  ),).platformBrightness;
+
+  Brightness brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness;
+
+  // Brightness brightness = MediaQueryData.fromView(View.of(
+  //   event.context,
+  // ),).platformBrightness;
 
   if (themeStatus == ThemeStatus.dark.index) {
     emit(DarkTheme());
@@ -53,9 +56,10 @@ _onThemeEventChangeTheme(
     keyName: PreferencesKey.kThemeStatus,
   );
 
-  Brightness brightness = MediaQueryData.fromView(View.of(
-    event.context,
-  ),).platformBrightness;
+  Brightness brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness;
+  // Brightness brightness = MediaQueryData.fromView(View.of(
+  //   event.context,
+  // ),).platformBrightness;
 
   //Dark
   if (themeStatus == ThemeStatus.dark.index) {

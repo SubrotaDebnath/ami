@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeBloc>(
-          create: (context) => ThemeBloc()..add(ThemeEventSetUp(context: context)),
+          create: (context) =>
+              ThemeBloc()..add(ThemeEventSetUp(context: context)),
         ),
       ],
       child: BlocConsumer<ThemeBloc, ThemeState>(

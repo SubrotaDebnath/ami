@@ -22,8 +22,8 @@ _onThemeEventSetUp(ThemeEventSetUp event, Emitter<ThemeState> emit) async {
     keyName: PreferencesKey.kThemeStatus,
   );
 
-  Brightness brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness;
-
+  Brightness brightness =
+      WidgetsBinding.instance.platformDispatcher.platformBrightness;
 
   if (themeStatus == ThemeStatus.dark.index) {
     emit(DarkTheme());
@@ -61,7 +61,8 @@ _onThemeEventChangeTheme(
     keyName: PreferencesKey.kThemeStatus,
   );
 
-  Brightness brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness;
+  Brightness brightness =
+      WidgetsBinding.instance.platformDispatcher.platformBrightness;
 
   //Dark
   if (themeStatus == ThemeStatus.dark.index) {

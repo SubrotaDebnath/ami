@@ -12,12 +12,6 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SizedBox(
-      // decoration: BoxDecoration(
-      //   color: Colors.pink,
-      //   borderRadius: Components().topsBorderRadius(),
-      // ),
-      //margin: EdgeInsets.only(top: 20.0),
-      //height: size.height,
       height: 920,
       child: Stack(
         alignment: Alignment.center,
@@ -29,7 +23,6 @@ class About extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent,
-                    // borderRadius: Components().topsBorderRadius(),
                     image: DecorationImage(
                       fit: BoxFit.fitWidth,
                       image: AssetImage(
@@ -56,7 +49,6 @@ class About extends StatelessWidget {
                           child: Components().copyrightText(),
                         ),
                         const SizedBox(
-                          //height: (MediaQuery.of(context).size.height / 3) / 2,
                           height: 150,
                         ),
                         Components().blockTitleText(Strings().kAboutTitleText),
@@ -85,7 +77,6 @@ class About extends StatelessWidget {
               ),
             ),
             child: Container(
-              //height: MediaQuery.of(context).size.height / 3,
               height: 310,
               width: size.width < 1150
                   ? 850

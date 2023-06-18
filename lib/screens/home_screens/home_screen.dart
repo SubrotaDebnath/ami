@@ -31,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
       body: InkWell(
         onTap: () {
           context.go(Routes.kAboutScreen);
-          // Navigator.pushNamed(context,Routes.kAboutScreen);
         },
         child: const Card(
           child: SizedBox(

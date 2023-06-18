@@ -43,8 +43,11 @@ class WebViewState extends State<WebView> {
                 padding: const EdgeInsets.only(top: 16, bottom: 32),
                 width: 250,
                 color: Colors.transparent,
-                child: Components()
-                    .buildListView(controller, getIndex, profileIndex),
+                child: Components().buildListView(
+                  controller: controller,
+                  getIndex: getIndex,
+                  profileIndex: profileIndex,
+                ),
               ),
             ),
           ),

@@ -17,7 +17,6 @@ class TabViewState extends State<TabView> {
   void _getIndex(int index) {
     setState(() {
       _profileIndex = index;
-      //print('Index: $index');
     });
   }
 
@@ -28,9 +27,9 @@ class TabViewState extends State<TabView> {
       appBar: Components().kSmallAppBar(),
       drawer: Drawer(
         child: Components().buildListView(
-          _controller,
-          _getIndex,
-          _profileIndex,
+          controller: _controller,
+          getIndex: _getIndex,
+          profileIndex: _profileIndex,
         ),
       ),
       body: Container(

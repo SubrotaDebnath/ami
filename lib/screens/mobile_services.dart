@@ -11,9 +11,7 @@ class MobileServices extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 2740,
-      //color: Colors.pink,
       padding: const EdgeInsets.all(16),
-
       child: Column(
         children: [
           Components().blockTitleText(Strings().kServicesTitleText),

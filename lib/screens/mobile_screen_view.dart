@@ -18,7 +18,6 @@ class MobileViewState extends State<MobileView> {
   void getIndex(int index) {
     setState(() {
       profileIndex = index;
-      //print('Index: $index');
     });
   }
 
@@ -27,7 +26,11 @@ class MobileViewState extends State<MobileView> {
     return Scaffold(
       appBar: Components().kSmallAppBar(),
       drawer: Drawer(
-        child: Components().buildListView(controller, getIndex, profileIndex),
+        child: Components().buildListView(
+          controller: controller,
+          getIndex: getIndex,
+          profileIndex: profileIndex,
+        ),
       ),
       body: const MobileBody(),
     );

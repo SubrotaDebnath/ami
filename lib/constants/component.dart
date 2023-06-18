@@ -79,11 +79,11 @@ class Components {
         ],
       );
 
-  ListView buildListView(
-    ScrollController controller,
-    Function(int) getIndex,
-    int profileIndex,
-  ) =>
+  ListView buildListView({
+    required ScrollController controller,
+    required Function(int) getIndex,
+    required int profileIndex,
+  }) =>
       ListView.builder(
         controller: controller,
         itemCount: AllListItem().kMenuItem.length,

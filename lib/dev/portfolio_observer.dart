@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../dev/log.dart';
+import 'log.dart';
 
 class PortfolioObserver extends BlocObserver {
   @override

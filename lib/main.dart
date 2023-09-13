@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'business_logic/portfolio_observer.dart';
-import 'business_logic/theme_bloc/theme_bloc.dart';
 import 'constants/navigation/routers.dart';
-import 'constants/strings.dart';
-import 'constants/theme/app_theme.dart';
+import 'dev/portfolio_observer.dart';
+
 
 void main() {
   Bloc.observer = PortfolioObserver();
@@ -22,22 +20,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider<ThemeBloc>(
-          create: (context) =>
-              ThemeBloc()..add(ThemeEventSetUp(context: context)),
-        ),
+      providers: const [
+        // BlocProvider<ThemeBloc>(
+        //   create: (context) =>
+        //       ThemeBloc()..add(ThemeEventSetUp(context: context)),
+        // ),
       ],
-      child: BlocConsumer<ThemeBloc, ThemeState>(
-        listener: (context, themeState) {},
-        builder: (context, themeState) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            title: Strings().kName,
-            routerConfig: Routers().router,
-            theme: AppTheme(themeState: themeState).themeData(),
-          );
-        },
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerConfig: Routers().router,
+        theme:ThemeData.dark(),
       ),
     );
   }

@@ -34,33 +34,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// class ViewSelector extends StatefulWidget {
-//   const ViewSelector({super.key});
-//
-//   @override
-//   ViewSelectorState createState() => ViewSelectorState();
-// }
-//
-// class ViewSelectorState extends State<ViewSelector> {
-//   Size screenSize =  Size.zero;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     setState(() {
-//       screenSize = MediaQuery.of(context).size;
-//     });
-//
-//     return  screenSize.width >= 992
-//         ? WebView(width: screenSize.width)
-//         : screenSize.width < 992 && screenSize.width > 600
-//         ?const TabView()
-//         : const MobileView();
-//
-//   }
-//   @override
-//   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-//     super.debugFillProperties(properties);
-//     properties.add(DiagnosticsProperty<Size>('screenSize', screenSize));
-//   }
-// }

@@ -35,7 +35,7 @@ class Log {
     required String title,
     required dynamic msg,
   }) {
-    logger.wtf('Exception:: $tag \n$title\n$msg');
+    logger.f('Exception:: $tag \n$title\n$msg');
   }
 
   void error({
@@ -56,14 +56,14 @@ class Log {
     required String title,
     required dynamic msg,
   }) {
-    logger.v('Business Logic:: $tag \n$title\n$msg');
+    logger.t('Business Logic:: $tag \n$title\n$msg');
   }
 
   void verbose({
     required String title,
     required dynamic msg,
   }) {
-    logger.v('Verbose:: $tag \n$title\n$msg');
+    logger.t('Verbose:: $tag \n$title\n$msg');
   }
 }
 

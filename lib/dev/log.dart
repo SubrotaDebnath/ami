@@ -1,14 +1,45 @@
 import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 
-class Log {
-  Log({
-    required this.tag,
+abstract class Log {
+  void info({
+    required String title,
+    required dynamic msg,
   });
 
-  final dynamic tag;
+  void warning({
+    required String title,
+    required dynamic msg,
+  });
 
-  final logger = Logger(
+  void exception({
+    required String title,
+    required dynamic msg,
+  });
+
+  void error({
+    required String title,
+    required dynamic msg,
+  });
+
+  void debug({
+    required String title,
+    required dynamic msg,
+  });
+
+  void blocObserver({
+    required String title,
+    required dynamic msg,
+  });
+
+  void verbose({
+    required String title,
+    required dynamic msg,
+  });
+}
+
+class LogImpl extends Log {
+  final _logger = Logger(
     filter: MyLogFilter(),
     printer: PrettyPrinter(
       methodCount: 0,
@@ -17,53 +48,60 @@ class Log {
     ),
   );
 
+  @override
   void info({
     required String title,
     required dynamic msg,
   }) {
-    logger.i('INFO:: $tag\n$title\n$msg');
+    _logger.i('INFO:: $title\n$msg');
   }
 
+  @override
   void warning({
     required String title,
     required dynamic msg,
   }) {
-    logger.w('WARNING:: $tag\n$title\n$msg');
+    _logger.w('WARNING:: $title\n$msg');
   }
 
+  @override
   void exception({
     required String title,
     required dynamic msg,
   }) {
-    logger.f('Exception:: $tag \n$title\n$msg');
+    _logger.f('Exception:: $title\n$msg');
   }
 
+  @override
   void error({
     required String title,
     required dynamic msg,
   }) {
-    logger.e('ERROR:: $tag \n$title\n$msg');
+    _logger.e('ERROR:: $title\n$msg');
   }
 
+  @override
   void debug({
     required String title,
     required dynamic msg,
   }) {
-    logger.d('DEBUG:: $tag \n$title\n$msg');
+    _logger.d('DEBUG:: $title\n$msg');
   }
 
+  @override
   void blocObserver({
     required String title,
     required dynamic msg,
   }) {
-    logger.t('Business Logic:: $tag \n$title\n$msg');
+    _logger.t('Business Logic:: $title\n$msg');
   }
 
+  @override
   void verbose({
     required String title,
     required dynamic msg,
   }) {
-    logger.t('Verbose:: $tag \n$title\n$msg');
+    _logger.t('Verbose:: $title\n$msg');
   }
 }
 

@@ -3,16 +3,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'constants/navigation/routers.dart';
 import 'dev/portfolio_observer.dart';
+import 'injection_container.dart' as di;
 
 
-void main() {
+Future<void> main() async {
   Bloc.observer = PortfolioObserver();
+  await di.init();
   runApp(
     const MyApp(),
   );
 }
 
 class MyApp extends StatelessWidget {
+
   const MyApp({
     super.key,
   });

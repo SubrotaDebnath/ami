@@ -10,30 +10,37 @@ Future<void> main() async {
   Bloc.observer = PortfolioObserver();
   await di.init();
   runApp(
-    const MyApp(),
+    const MyPortfolioApp(),
   );
 }
 
-class MyApp extends StatelessWidget {
-
-  const MyApp({
+class MyPortfolioApp extends StatelessWidget {
+  const MyPortfolioApp({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: const [
-        // BlocProvider<ThemeBloc>(
-        //   create: (context) =>
-        //       ThemeBloc()..add(ThemeEventSetUp(context: context)),
-        // ),
-      ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerConfig: Routers().router,
-        theme:ThemeData.dark(),
-      ),
+    // Without BLoC
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: Routers().router,
+      theme: ThemeData.light(useMaterial3: true),
     );
+
+    //With BLoC
+    // return MultiBlocProvider(
+    //   providers: const [
+    //     // BlocProvider<ThemeBloc>(
+    //     //   create: (context) =>
+    //     //       ThemeBloc()..add(ThemeEventSetUp(context: context)),
+    //     // ),
+    //   ],
+    //   child: MaterialApp.router(
+    //     debugShowCheckedModeBanner: false,
+    //     routerConfig: Routers().router,
+    //     theme:ThemeData.dark(),
+    //   ),
+    // );
   }
 }

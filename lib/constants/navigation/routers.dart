@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../single_static_page/presentation/screens/home_screens/static_desktop_home_screen.dart';
+import '../../single_static_page/presentation/screens/landing_screens/static_landing_screen.dart';
 import 'routes.dart';
 
 class Routers {
   GoRouter router = GoRouter(
-    initialLocation: Routes.kHomeScreen,
+    // initialLocation: Routes.kHomeScreen,
+    // Static Single Page
+    initialLocation: Routes.kLandingScreen,
     routes: [
+
+      // Static Screens
       GoRoute(
-        name: Routes.kHomeScreen,
+        // name: Routes.kHomeScreen,
         path: Routes.kHomeScreen,
-        builder: (context, state) => HomeScreen(
-          key: state.pageKey,
+        builder: (context, state) => StaticDesktopHomeScreen(
+
+        ),
+      ),
+      GoRoute(
+        name: Routes.kLandingScreen,
+        path: Routes.kLandingScreen,
+        builder: (context, state) => StaticLandingScreen(
         ),
       ),
     ],
@@ -20,17 +32,6 @@ class Routers {
   );
 }
 
-class HomeScreen extends StatelessWidget{
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-  return  Scaffold(
-    appBar: AppBar(),
-    body: Container(),
-  );
-  }
-}
 
 class NavigationErrorScreen extends StatelessWidget {
   const NavigationErrorScreen({super.key});

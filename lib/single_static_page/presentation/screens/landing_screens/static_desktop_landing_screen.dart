@@ -18,15 +18,20 @@ class StaticWebLandingScreen extends StatefulWidget {
 
 class _StaticWebLandingScreenState extends State<StaticWebLandingScreen> {
   final ItemScrollController _itemScrollController = ItemScrollController();
-  final ScrollOffsetController _scrollOffsetController =
-      ScrollOffsetController();
-  final ItemPositionsListener _itemPositionsListener =
-      ItemPositionsListener.create();
-  final ScrollOffsetListener _scrollOffsetListener =
-      ScrollOffsetListener.create();
+  final ScrollOffsetController _scrollOffsetController = ScrollOffsetController();
+  final ItemPositionsListener _itemPositionsListener = ItemPositionsListener.create();
+  final ScrollOffsetListener _scrollOffsetListener = ScrollOffsetListener.create();
   final ValueNotifier<int> sideNavigationNotifier = ValueNotifier<int>(0);
   late List<ViewContent> content;
   final ScrollController controller = ScrollController();
+
+  int currentIndex = 0;
+
+  void setIndex({required int index}){
+    setState(() {
+      currentIndex=index;
+    });
+  }
 
   int get trailingIndex {
     var index = _itemPositionsListener.itemPositions.value
@@ -39,13 +44,13 @@ class _StaticWebLandingScreenState extends State<StaticWebLandingScreen> {
     return index;
   }
 
-  Future<void> _scrollToIndex() async {
-    await _itemScrollController.scrollTo(
-      index: sideNavigationNotifier.value,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOutCubic,
-    );
-  }
+  // Future<void> _scrollToIndex() async {
+  //   await _itemScrollController.scrollTo(
+  //     index: sideNavigationNotifier.value,
+  //     duration: const Duration(milliseconds: 300),
+  //     curve: Curves.easeInOutCubic,
+  //   );
+  // }
 
   @override
   void initState() {
@@ -53,14 +58,11 @@ class _StaticWebLandingScreenState extends State<StaticWebLandingScreen> {
 
     content = contents();
 
-    _itemPositionsListener.itemPositions.addListener(() {
-      sideNavigationNotifier.value = trailingIndex;
-    });
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       sideNavigationNotifier.addListener(() async {
-        await _scrollToIndex();
-        setState(() {});
+       setIndex(index: sideNavigationNotifier.value);
+       await _itemScrollController.scrollTo(index: sideNavigationNotifier.value, duration: const Duration(milliseconds: 300),curve: Curves.linear);
+
       });
     });
   }
@@ -121,7 +123,11 @@ class _StaticWebLandingScreenState extends State<StaticWebLandingScreen> {
                       itemCount: content.length,
                       shrinkWrap: true,
                       itemBuilder: (BuildContext context, int index) {
-                        return GestureDetector(
+                        return InkWell(
+                          hoverColor: sideNavigationNotifier.value == index?Colors.transparent: Colors.pink.shade100,
+                          onHover: (b){
+
+                          },
                           onTap: () {
                             sideNavigationNotifier.value = index;
                           },
@@ -163,6 +169,8 @@ class _StaticWebLandingScreenState extends State<StaticWebLandingScreen> {
                 if (notification is UserScrollNotification) {
                   //ToDo: Add Page Scroll Progress Persentage
                   // double progress = notification.metrics.pixels / notification.metrics.maxScrollExtent;
+                  // setIndex(index: trailingIndex);
+                  sideNavigationNotifier.value = trailingIndex;
                 }
                 return true;
               },
@@ -172,7 +180,8 @@ class _StaticWebLandingScreenState extends State<StaticWebLandingScreen> {
                 itemPositionsListener: _itemPositionsListener,
                 scrollOffsetListener: _scrollOffsetListener,
                 itemCount: content.length,
-                physics: const ClampingScrollPhysics(),
+                physics: const AlwaysScrollableScrollPhysics(),
+                // physics: const ClampingScrollPhysics(),
                 itemBuilder: (context, index) {
                   return content[index].view;
                 },

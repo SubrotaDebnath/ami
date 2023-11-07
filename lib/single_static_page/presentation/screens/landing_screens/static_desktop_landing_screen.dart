@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../../constants/colours.dart';
@@ -118,6 +117,11 @@ class _StaticWebLandingScreenState extends State<StaticWebLandingScreen> {
                 Container(
                   padding: const EdgeInsets.all(12),
                   width: 300,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    // color: Colors.green.shade50,
+                    border: Border(right: BorderSide(color: Colours.kPrimery))
+                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -261,21 +265,22 @@ class _StaticWebLandingScreenState extends State<StaticWebLandingScreen> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  child: FAProgressBar(
-                    direction: Axis.vertical,
-                    borderRadius: BorderRadius.zero,
-                    currentValue: progress.toDouble(),
-                    displayText: '',
-                    verticalDirection: VerticalDirection.up,
-                    backgroundColor: Colors.grey.shade100,
-                    progressColor: Colours.kPrimery,
-                    displayTextStyle: const TextStyle(
-                      color: Colors.transparent,
-                    ),
-                    size: 2,
-                  ),
-                ),
+
+                // SizedBox(
+                //   child: FAProgressBar(
+                //     direction: Axis.vertical,
+                //     borderRadius: BorderRadius.zero,
+                //     currentValue: progress.toDouble(),
+                //     displayText: '',
+                //     verticalDirection: VerticalDirection.up,
+                //     backgroundColor: Colors.grey.shade100,
+                //     progressColor: Colours.kPrimery,
+                //     displayTextStyle: const TextStyle(
+                //       color: Colors.transparent,
+                //     ),
+                //     size: 2,
+                //   ),
+                // ),
                 Expanded(
                   child: NotificationListener<ScrollNotification>(
                     onNotification: (notification) {
